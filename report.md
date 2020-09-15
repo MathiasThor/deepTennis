@@ -20,7 +20,7 @@ As the name indicates, `rollout_manger()` is responsible for collecting rollouts
 ### PPO agent
 The `PPO_algorithm()` implements the Proximal Policy Optimization algorithm and is in charge of optimizing the agents’ selection of actions in order to achieve the highest score. The PPO algorithm is adapted to MARL (Multi-Agent reinforcement learning) by using a meta agent like approach in which a single policy is learned for both agents. However, each agent uses its own observations to achieve the best action, resulting in their own personal reward. The advantage is that by using two agents to train the same policy, the trajectories can be sampled faster, and thus it may learn more quickly.
 
-The PPO_algorithm() first instantiates the actor and critic networks, which convert 24 input states into a predicted best action and estimated value, respectively. **Both networks have the 24 states as input and two fully connected layers with 32 neurons in each. Both networks also use the ReLu activation function between all layers.**
+The `PPO_algorithm()` first instantiates the actor and critic networks, which convert 24 input states into a predicted best action and estimated value, respectively. **Both networks have the 24 states as input and two fully connected layers with 32 neurons in each. Both networks also use the ReLu activation function between all layers.**
 
 **The actor-network has 2 outputs**, representing the mean of the predicted distribution of the best actions for the current input. The standard deviation can be calculated from these means, and the best action can then be sampled from the resulting normal distribution.
 
@@ -83,8 +83,8 @@ The following plot shows the results of using three different values of `PPO_CLI
 IMAGE HERE!
 *Plot of the mean score for all 20 robots per episode when using three different PPO clip range parameters*
 
-As can be seen, all three PPO clipping ranges can achieve an average score of at least 0.5 (more than 1 in fact) for more than 100 episodes, thus meeting this project’s goal. A PPO_CLIP_RANGE = 0.15 converge the fastest as it only needs around 1000 episodes on average to meet the goal score of 0.5. However, both PPO_CLIP_RANGE = 0.05 and PPO_CLIP_RANGE = 0.1 are able to achieve larger average scores (around 1.3). In the `/saved_weights` directory a weight set using `PPO_CLIP_RANGE` = 0.05 is placed. This can be loaded and tested with the “Load and test trained agent” cell. 
+As can be seen, all three PPO clipping ranges can achieve an average score of at least 0.5 (more than 1 in fact) for more than 100 episodes, thus meeting this project’s goal. A PPO_CLIP_RANGE = 0.15 converge the fastest as it only needs around 1000 episodes on average to meet the goal score of 0.5. However, both `PPO_CLIP_RANGE` = 0.05 and `PPO_CLIP_RANGE` = 0.1 are able to achieve larger average scores (around 1.3). In the `/saved_weights` directory a weight set using `PPO_CLIP_RANGE` = 0.05 is placed. This can be loaded and tested with the “Load and test trained agent” cell. 
 
 ## Future work
-In the future, it would be beneficial to do more parameter tuning (e.g., higher PPO clipping ranges). It would also be interesting to look at different network architectures for the actor and critic networks to see how this affects the learning performance. Finally, it would be interesting to investigate if the PPO_CLIP_RANGE could be adapted during learning (e.g., start high and then decrease).
+In the future, it would be beneficial to do more parameter tuning (e.g., higher PPO clipping ranges). It would also be interesting to look at different network architectures for the actor and critic networks to see how this affects the learning performance. Finally, it would be interesting to investigate if the `PPO_CLIP_RANGE` could be adapted during learning (e.g., start high and then decrease).
 
