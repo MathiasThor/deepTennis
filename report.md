@@ -78,12 +78,12 @@ The hyperparameters are set as follows:
 Due to this project’s scope, only the `PPO_CLIP_RANGE` hyperparameter will be tested for different settings, while the remaining hyperparameters will remain fixed. The results of varying `PPO_CLIP_RANGE` can be seen in the following section.
 
 ## Experiments and results
-The following plot shows the results of using three different values of `PPO_CLIP_RANGE` (0.05, 0.10, and 0.15). For each `PPO_CLIP_RANGE` value, the learning algorithm was executed for 3000 episodes and repeated five times. This makes it possible to calculate and plot the mean return and standard error. The thin and light blue, orange, and green lines show the mean scores, while the standard error is shown with transparent areas around these lines. The thicker and darker blue, orange, and green lines show the mean score averaged over 100 episodes.
+The following plot shows the results of using three different values of `PPO_CLIP_RANGE` (0.05, 0.10, and 0.15). For each `PPO_CLIP_RANGE` value, the learning algorithm was executed for 3000 episodes and repeated five times. This makes it possible to calculate and plot the mean return and standard error.
 
-IMAGE HERE!
-*Plot of the mean score for all 20 robots per episode when using three different PPO clip range parameters*
+![plot](https://github.com/MathiasThor/deepTennis/blob/master/data/score_episode.png)
+*The thin and light blue, orange, and green lines show the mean scores, while the standard error is shown with transparent areas around these lines. The thicker and darker blue, orange, and green lines show the mean score averaged over 100 episodes. Note that the score for an episode is the max reward of the two agents.*
 
-As can be seen, all three PPO clipping ranges can achieve an average score of at least 0.5 (more than 1 in fact) for more than 100 episodes, thus meeting this project’s goal. A PPO_CLIP_RANGE = 0.15 converge the fastest as it only needs around 1000 episodes on average to meet the goal score of 0.5. However, both `PPO_CLIP_RANGE` = 0.05 and `PPO_CLIP_RANGE` = 0.1 are able to achieve larger average scores (around 1.3). In the `/saved_weights` directory a weight set using `PPO_CLIP_RANGE` = 0.05 is placed. This can be loaded and tested with the “Load and test trained agent” cell. 
+As can be seen, all three PPO clipping ranges can achieve an average score of at least 0.5 (more than 1 in fact) for more than 100 episodes, thus meeting this project’s goal. A `PPO_CLIP_RANGE` = 0.15 converge the fastest as it only needs around 1000 episodes on average to meet the goal score of 0.5. However, both `PPO_CLIP_RANGE` = 0.05 and `PPO_CLIP_RANGE` = 0.1 are able to achieve larger average scores (around 1.3). In the `/saved_weights` directory a weight set using `PPO_CLIP_RANGE` = 0.05 is placed. This can be loaded and tested with the “Load and test trained agent” cell. 
 
 ## Future work
 In the future, it would be beneficial to do more parameter tuning (e.g., higher PPO clipping ranges). It would also be interesting to look at different network architectures for the actor and critic networks to see how this affects the learning performance. Finally, it would be interesting to investigate if the `PPO_CLIP_RANGE` could be adapted during learning (e.g., start high and then decrease).
