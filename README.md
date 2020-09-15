@@ -4,7 +4,7 @@
 
 This project is about training two agents to control rackets to bounce a ball over a net. The project uses the Unity ML-Agents Tennis Environment. If an agent hits the ball over the net, it receives a reward of +0.1. If an agent lets a ball hit the ground or hits the ball out of bounds, it gets a reward of -0.01. Thus, the goal of each agent is to keep the ball in play.
 
-GIF HERE!
+![reacher](https://github.com/MathiasThor/deepTennis/blob/master/data/tennis.gif)
 
 The agents must get an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
 - After each episode, we add up the rewards that each agent received (without discounting) to get a score for each agent. This yields 2 (potentially different) scores. We then take the maximum of these two scores.
